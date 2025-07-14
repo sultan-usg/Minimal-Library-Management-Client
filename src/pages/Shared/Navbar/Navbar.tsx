@@ -45,7 +45,7 @@ const Navbar = () => {
                 height={100}
                 className="w-16"
               />
-              <span className="text-primary text-xs uppercase font-bold">Books Finder</span>
+              {/* <span className="text-primary text-xs uppercase font-bold">Books Finder</span> */}
             </Link>
           </div>
           {/* NAv manu side here >>>>>>>>>>>>>>>> */}

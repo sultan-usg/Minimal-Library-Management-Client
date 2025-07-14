@@ -53,11 +53,11 @@ const BooksTable = () => {
   };
 
   return (
-    <div className="overflow-x-auto bg-white shadow rounded-md p-4">
+    <div className="overflow-x-auto bg-white shadow rounded-md p-4 md:pb-10">
       <Table>
         <TableCaption>A list of all books in the library.</TableCaption>
         <TableHeader>
-          <TableRow>
+          <TableRow className="bg-gray-200">
             <TableHead>Title</TableHead>
             <TableHead>Author</TableHead>
             <TableHead>Genre</TableHead>
