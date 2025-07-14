@@ -31,7 +31,7 @@ const BorrowSummary = () => {
 
 // console.log(borrows)
   return (
-    <div className="main_container py-10">
+    <div className="main_container py-10 pt-20">
       <h2 className="text-3xl font-bold text-center text-indigo-700 mb-8">
         📊 Borrow Summary
       </h2>

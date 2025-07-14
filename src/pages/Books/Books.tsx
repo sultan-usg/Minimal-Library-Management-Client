@@ -2,7 +2,7 @@ import BooksTable from "./BooksTable";
 
 const Books = () => {
   return (
-    <div className="main_container">
+    <div className="main_container pt-20">
       <h3 className="py-3 text-xl md:text-3xl font-semibold capitalize">
         View all books
       </h3>
