@@ -8,10 +8,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
-import { Pencil, Trash2, BookOpen } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/api/booksApi";
 import type { IBook } from "@/types";
 import Swal from "sweetalert2";
+import BorrowModal from "./BorrowModal";
 
 
 
@@ -51,25 +52,25 @@ const [deleteBook] = useDeleteBookMutation();
   };
 
 
-  const handleBorrow = (book: IBook) => {
-    if (book.copies === 0) {
-      alert("This book is currently unavailable.");
-      return;
-    }
+  // const handleBorrow = (book: IBook) => {
+  //   if (book.copies === 0) {
+  //     alert("This book is currently unavailable.");
+  //     return;
+  //   }
 
-    const borrowQty = Number(
-      prompt(`Enter quantity to borrow (1 - ${book.copies}):`, "1")
-    );
+  //   const borrowQty = Number(
+  //     prompt(`Enter quantity to borrow (1 - ${book.copies}):`, "1")
+  //   );
 
-    if (!borrowQty || borrowQty < 1 || borrowQty > book.copies) {
-      alert("Invalid quantity.");
-      return;
-    }
+  //   if (!borrowQty || borrowQty < 1 || borrowQty > book.copies) {
+  //     alert("Invalid quantity.");
+  //     return;
+  //   }
 
 
 
-    alert(`You borrowed ${borrowQty} copy/copies of "${book.title}"`);
-  };
+  //   alert(`You borrowed ${borrowQty} copy/copies of "${book.title}"`);
+  // };
 
   return (
     <div className="overflow-x-auto bg-white shadow rounded-md p-4 md:pb-10">
@@ -116,13 +117,8 @@ const [deleteBook] = useDeleteBookMutation();
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
-                <Button
-                  size="sm"
-                  onClick={() => handleBorrow(book)}
-                  disabled={book.copies === 0}
-                >
-                  <BookOpen className="w-4 h-4" />
-                </Button>
+                <BorrowModal book={book} />
+
               </TableCell>
             </TableRow>
           ))}
