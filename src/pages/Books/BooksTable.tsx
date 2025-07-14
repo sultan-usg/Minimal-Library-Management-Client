@@ -9,28 +9,47 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { Pencil, Trash2, BookOpen } from "lucide-react";
-import { useGetBooksQuery } from "@/redux/api/booksApi";
+import { useDeleteBookMutation, useGetBooksQuery } from "@/redux/api/booksApi";
 import type { IBook } from "@/types";
+import Swal from "sweetalert2";
 
 
 
 const BooksTable = () => {
   const { data: books, isLoading, isError } = useGetBooksQuery();
-
+const [deleteBook] = useDeleteBookMutation();
   if (isLoading) return <p>Loading...</p>;
   if (isError || !books) return <p>Error loading books.</p>;
-// console.log(books.data)
+  // console.log(books.data)
 
   const handleEdit = (book: IBook) => {
     alert(`Edit book: ${book.title}`);
   };
 
   const handleDelete = (bookId: string) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete?");
-    if (confirmDelete) {
-      console.log(bookId)
-    }
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // console.log("Deleting book with ID:", bookId);
+        await deleteBook(bookId).unwrap();
+        Swal.fire({
+          title: "Deleted!",
+          text: "Book has been deleted.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+      }
+    });
   };
+
 
   const handleBorrow = (book: IBook) => {
     if (book.copies === 0) {
@@ -47,7 +66,7 @@ const BooksTable = () => {
       return;
     }
 
-  
+
 
     alert(`You borrowed ${borrowQty} copy/copies of "${book.title}"`);
   };
