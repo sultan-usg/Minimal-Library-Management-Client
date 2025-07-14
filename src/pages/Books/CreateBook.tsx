@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/select";
 
 import { useCreateBookMutation } from "@/redux/api/booksApi";
+import type { IApiError } from "@/types";
 
 const genreOptions = [
   "FICTION",
@@ -71,8 +72,9 @@ const CreateBook = () => {
       await createBook(values).unwrap();
       toast.success("✅ Book created successfully!");
       navigate("/books");
-    } catch (error: any) {
-      toast.error(error?.data?.message || "❌ Failed to create book.");
+    } catch (error) {
+      const err = error as IApiError;
+      toast.error(err?.data?.message || "❌ Failed to create book.");
     }
   };
 
