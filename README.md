@@ -33,8 +33,8 @@ Books Finder is a modern, user-friendly digital library management system built 
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/yourusername/books-finder.git
-   cd books-finder
+   git clone https://github.com/sultan-usg/Minimal-Library-Management-Client.git
+   cd Minimal-Library-Management-Client
    ```
 
 2. **Install dependencies**
@@ -63,13 +63,10 @@ src/
 ├── components/          # Reusable UI components
 ├── pages/               # Route pages (Home, Books, About, etc.)
 ├── redux/               # Redux slices and API setup (RTK Query)
+├── routes/              # All routes
 ├── types/               # TypeScript interfaces and types
 ├── App.tsx              # Main app structure
 └── main.tsx             # Entry point
 ```
 
 ---
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
