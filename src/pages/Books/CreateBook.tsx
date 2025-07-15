@@ -70,11 +70,11 @@ const CreateBook = () => {
   const onSubmit = async (values: CreateBookFormData) => {
     try {
       await createBook(values).unwrap();
-      toast.success("✅ Book created successfully!");
+      toast.success("Book created successfully!");
       navigate("/books");
     } catch (error) {
       const err = error as IApiError;
-      toast.error(err?.data?.message || "❌ Failed to create book.");
+      toast.error(err?.data?.message || "Failed to create book.");
     }
   };
 
