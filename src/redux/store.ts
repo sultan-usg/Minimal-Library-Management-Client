@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from "./features/counter/counterSlice"
 import { booksApi } from './api/booksApi'
 import { borrowApi } from './api/borrowApi'
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
      [booksApi.reducerPath]: booksApi.reducer,
     [borrowApi.reducerPath]: borrowApi.reducer,
   },
