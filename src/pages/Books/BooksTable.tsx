@@ -14,13 +14,14 @@ import Swal from "sweetalert2";
 import BorrowModal from "./BorrowModal";
 import EditBookModal from "./EditBookModal";
 import { Link } from "react-router";
+import Spinner from "../Shared/Spinner";
 
 
 
 const BooksTable = () => {
   const { data: books, isLoading, isError } = useGetBooksQuery();
   const [deleteBook] = useDeleteBookMutation();
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <div><Spinner></Spinner></div>;
   if (isError || !books) return <p>Error loading books.</p>;
   // console.log(books.data)
 

@@ -2,10 +2,11 @@ import { Link } from "react-router";
 import BookCard from "./BookCard";
 import { Button } from "@/components/ui/button";
 import { useGetBooksQuery } from "@/redux/api/booksApi";
+import Spinner from "@/pages/Shared/Spinner";
 
 const LatestBooks = () => {  
   const { data: books, isLoading, isError } = useGetBooksQuery();
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <div className="py-10"><Spinner></Spinner></div>;
   if (isError || !books) return <p>Error loading books.</p>;
   return (
     <section className="py-10 bg-white">

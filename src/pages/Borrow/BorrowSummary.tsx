@@ -8,6 +8,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useGetBorrowSummaryQuery } from "@/redux/api/borrowApi";
+import Spinner from "../Shared/Spinner";
 
 const BorrowSummary = () => {
   const { data:borrows, isLoading, isError} = useGetBorrowSummaryQuery();
@@ -15,7 +16,7 @@ const BorrowSummary = () => {
   if (isLoading) {
     return (
       <div className="main_container py-10 text-center">
-        <p className="text-lg text-gray-500">Loading borrow summary...</p>
+        <div className="pt-10"><Spinner></Spinner></div>;
       </div>
     );
   }

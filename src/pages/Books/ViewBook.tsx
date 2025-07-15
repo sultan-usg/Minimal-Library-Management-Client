@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 import { useGetBookQuery } from "@/redux/api/booksApi";
 import { Badge } from "@/components/ui/badge";
-import { Loader } from "lucide-react";
 import BorrowModal from "./BorrowModal";
+import Spinner from "../Shared/Spinner";
 
 const ViewBook = () => {
   const { id } = useParams();
@@ -11,7 +11,7 @@ const ViewBook = () => {
   if (isLoading)
     return (
       <div className="flex justify-center mt-20">
-        <Loader className="animate-spin" />
+        <div><Spinner></Spinner></div>;
       </div>
     );
 
