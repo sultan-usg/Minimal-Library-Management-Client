@@ -42,6 +42,9 @@ const BorrowSummary = () => {
           <TableHeader>
             <TableRow className="bg-gray-200">
               <TableHead className=" font-semibold text-base">
+                No.
+              </TableHead>
+              <TableHead className=" font-semibold text-base">
                 Book Title
               </TableHead>
               <TableHead className=" font-semibold text-base">
@@ -54,8 +57,11 @@ const BorrowSummary = () => {
           </TableHeader>
 
           <TableBody>
-            {borrows?.data?.map((entry, index) => (
+            {borrows?.data?.map((entry, index:number) => (
               <TableRow key={index}>
+                <TableCell className="font-medium m text-gray-800">
+                  {index + 1}
+                </TableCell>
                 <TableCell className="font-medium text-gray-800">
                   {entry.book.title}
                 </TableCell>
