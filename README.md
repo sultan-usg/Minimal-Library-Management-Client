@@ -1,69 +1,75 @@
-# React + TypeScript + Vite
+# 📚 Books Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Books Finder is a modern, user-friendly digital library management system built with React, TypeScript, Redux Toolkit, and Tailwind CSS. It allows users to browse, create, borrow, and manage books efficiently through a clean and responsive interface.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 **Browse Books** – View all available books with real-time updates.
+- ➕ **Create Book** – Add new books to the collection via a form with validation.
+- ✏️ **Edit Book** – Update book information using a modal-based editor.
+- 🗑️ **Delete Book** – Safely remove books with confirmation prompts.
+- 📥 **Borrow Book** – Borrow available copies with quantity and due date.
+- 📄 **Borrow Summary** – Track borrowing history and summary per book.
+- 📖 **View Book Details** – See detailed info for each book on a separate route.
+- 📱 **Responsive Design** – Optimized for desktop, tablet, and mobile.
+- 💬 **FAQ & About** – Learn more about the platform and its purpose.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React, TypeScript, Tailwind CSS, Shadcn UI, React Router
+- **State Management**: Redux Toolkit + RTK Query
+- **Form Handling**: React Hook Form + Zod
+- **UI Enhancements**: SweetAlert2, Toastify, Embla Carousel
+- **Backend (assumed)**: Node.js, Express, MongoDB (with Mongoose)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## 🧪 Installation & Setup
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/books-finder.git
+   cd books-finder
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Environment Variables**
+
+   If applicable, create a `.env` file and add your API base URL or MongoDB URI.
+
+---
+
+## 📁 Folder Structure
+
+```
+src/
+├── assets/              # Static assets
+├── components/          # Reusable UI components
+├── pages/               # Route pages (Home, Books, About, etc.)
+├── redux/               # Redux slices and API setup (RTK Query)
+├── types/               # TypeScript interfaces and types
+├── App.tsx              # Main app structure
+└── main.tsx             # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📄 License
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+This project is open-source and available under the [MIT License](LICENSE).
